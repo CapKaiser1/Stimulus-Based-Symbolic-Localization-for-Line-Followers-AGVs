@@ -41,14 +41,12 @@ def turn_left(target_deg):
         angle += math.degrees(read_gyro_z()) * delta
         time.sleep(0.01)
     
-    # motores.stop()
-    print("Stop")
 
 def turn_right(target_deg):
     angle = 0
     prev = time.monotonic()
     print("Turning right...")
-    # motores.girar_direita()
+
 
     while angle < target_deg:
         now = time.monotonic()
@@ -57,8 +55,7 @@ def turn_right(target_deg):
         angle += -math.degrees(read_gyro_z()) * delta
         time.sleep(0.01)
     
-    # motores.stop()
-    print("Stop")
+
 
 # === Color Sensor Functions ===
 def detect_color():
@@ -79,3 +76,9 @@ def get_line_deviation():
     brightness = (r + g + b) / 3
     deviation = 1.0 - brightness / 255.0  # 0 = white, 1 = black line
     return deviation
+
+#For next versions:
+#1. Include motors and pwm.
+#2. Include PID Output for motors.
+#3. Include pick and place application.
+#4. Include load detection with Esp32cam.
