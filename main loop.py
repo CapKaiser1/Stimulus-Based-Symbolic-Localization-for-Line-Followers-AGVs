@@ -42,3 +42,30 @@ if d_front < 6:
     sleep(1)
     motores.stop()
     motores.turn_left(90)
+
+# === Main Navigation Loop ===
+def main_loop():
+    global green_marks, red_detected
+    while True:
+        cor = detect_color()
+        
+        if cor == "Green":
+            green_marks += 1
+            print(f"[CheckPoint] Green mark #{green_marks}")
+            time.sleep(0.5)
+
+        elif cor == "Red" and not red_detected:
+            red_detected = True
+            print("[End] Red mark found. Stopping.")
+            # motores.stop()
+            break
+
+        deviation = get_line_deviation()
+        correction = pid(deviation)
+        print(f"[PID] Deviation: {deviation:.2f}, Correction: {correction:.2f}")
+
+        # motores.set_speed(base + correction, base - correction)
+        time.sleep(0.1)
+
+
+main_loop()
