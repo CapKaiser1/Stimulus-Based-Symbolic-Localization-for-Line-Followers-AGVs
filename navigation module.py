@@ -76,9 +76,3 @@ def get_line_deviation():
     brightness = (r + g + b) / 3
     deviation = 1.0 - brightness / 255.0  # 0 = white, 1 = black line
     return deviation
-
-#For next versions:
-#1. Include motors and pwm.
-#2. Include PID Output for motors.
-#3. Include pick and place application.
-#4. Include load detection with Esp32cam.

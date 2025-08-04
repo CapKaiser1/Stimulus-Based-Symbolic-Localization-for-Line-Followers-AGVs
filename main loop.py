@@ -140,3 +140,10 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         motores.stop()
         print("\n[System] Interrupted by user.")
+
+
+#For next versions:
+#1. Include motors and pwm.
+#2. Include PID Output for motors.
+#3. Include pick and place application.
+#4. Include load detection with Esp32cam.
